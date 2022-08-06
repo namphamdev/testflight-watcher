@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 import testflight_watcher
 import requests
@@ -20,9 +19,9 @@ def send_notification(tf_id, free_slots, title):
         message = MSG_NO_FULL.format(title, dl_url)
     else:
         message = MSG_FULL.format(title)
-    requests.get(BOT_URL, params={"chat_id": CHAT_ID,
-                                  "text": message,
-                                  "parse_mode": "html",
-                                  "disable_web_page_preview": "true"})
+    requests.get(
+        BOT_URL, params={"chat_id": CHAT_ID, "text": message, "parse_mode": "html", "disable_web_page_preview": "true"}
+    )
+
 
 testflight_watcher.watch(sys.argv[-1].split(","), send_notification)
