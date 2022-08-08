@@ -13,7 +13,7 @@ TESTFLIGHT_URL = "https://testflight.apple.com/join/{}"
 FULL_TEXT = "This beta is full."
 
 
-def watch(watch_ids: list[str], callback, notify_full=True, sleep_time=900):
+def watch(watch_ids: list[str], callback, notify_full=True, loop=True, sleep_time=900):
     while True:
         for id in watch_ids:
 
@@ -29,4 +29,7 @@ def watch(watch_ids: list[str], callback, notify_full=True, sleep_time=900):
             except Exception as e:
                 print("An error occured:", e)
 
+        if not loop:
+            break
         sleep(sleep_time)
+
