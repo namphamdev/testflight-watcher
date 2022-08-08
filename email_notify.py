@@ -51,4 +51,4 @@ if __name__ == "__main__":
     if args.receiver is None:
         args.receiver = [args.email]
 
-    testflight_watcher.watch(args.ID, email_notifier(args.email, args.password, args.receiver), notify_full=False)
+    testflight_watcher.watch(args.ID, email_notifier(args.email, args.password, args.receiver), notify_full=False, loop=False)
