@@ -3,10 +3,12 @@
 import testflight_watcher
 import requests
 import sys
+import os
 
 
-CHAT_ID = ""
-BOT_TOKEN = ""
+CHAT_ID = os.environ['CHAT_ID']
+TRACKERS = os.environ['TRACKERS']
+BOT_TOKEN = os.environ['BOT_TOKEN']
 BOT_URL = "https://api.telegram.org/bot{}/sendMessage".format(BOT_TOKEN)
 MSG_NO_FULL = "TestFlight slots for <b>{}</b> beta are now available! \
 <a href='{}'>Download now</a>"
@@ -24,4 +26,4 @@ def send_notification(tf_id, free_slots, title):
     )
 
 
-testflight_watcher.watch(sys.argv[-1].split(","), send_notification)
+testflight_watcher.watch(TRACKERS.split(","), send_notification)
