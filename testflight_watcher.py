@@ -4,6 +4,7 @@ import requests
 from lxml import html
 import re
 from time import sleep
+import os
 
 
 XPATH_STATUS = '//*[@class="beta-status"]/span/text()'
@@ -13,7 +14,7 @@ TESTFLIGHT_URL = "https://testflight.apple.com/join/{}"
 FULL_TEXT = "This beta is full."
 
 
-def watch(watch_ids: list[str], callback, notify_full=True, loop=True, sleep_time=900):
+def watch(watch_ids: list[str], callback, notify_full=False, loop=True, sleep_time=300):
     while True:
         for id in watch_ids:
 
