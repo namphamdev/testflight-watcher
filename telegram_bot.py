@@ -9,6 +9,8 @@ import os
 CHAT_ID = os.environ['CHAT_ID']
 TRACKERS = os.environ['TRACKERS']
 BOT_TOKEN = os.environ['BOT_TOKEN']
+print(CHAT_ID)
+print(TRACKERS)
 BOT_URL = "https://api.telegram.org/bot{}/sendMessage".format(BOT_TOKEN)
 MSG_NO_FULL = "TestFlight slots for <b>{}</b> beta are now available! \
 <a href='{}'>Download now</a>"
